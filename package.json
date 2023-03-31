@@ -4,7 +4,7 @@
   "description": "A rich suite of intuitive web tools for everyone.",
   "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js",
+    "start": "NODE_ENV=production node backend/server.js",
     "server": "nodemon backend/server.js --ignore client",
     "client": "npm start --prefix frontend",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
