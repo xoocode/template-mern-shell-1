@@ -1,8 +1,9 @@
 const express = require('express')
 const session = require('express-session')
+const MongoStore = require('connect-mongo')
 const path = require('path')
 const bodyParser = require('body-parser')
-const dotenv = require('dotenv')
+const dotenv = require('dotenv').config()
 
 const port = process.env.PORT || 5000
 
@@ -11,15 +12,18 @@ const app = express()
 app.use(
   session({
     secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false,
+    store: MongoStore.create({
+      mongoUrl: process.env.MONGO_URI,
+      crypto: {
+        secret: process.env.MONGO_SECRET,
+      },
+      collectionName: 'sessions',
+    }),
   })
 )
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-
-app.get('/', (req, res => {  res.send('Hello World!')}))
 
 // Serve frontend static assets in production
 if (process.env.NODE_ENV === 'production') {
