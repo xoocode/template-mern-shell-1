@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from './logo.svg'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className='home page'>
+      <header>
+        <h1>Web Tool Magic</h1>
+        <p>Web Tool Magic is a suite of tools that helps you with your common tasks and makes your life easier.</p>
       </header>
+      <main>
+        <h2>Tools</h2>
+        <ul>
+          <li>Tool 1</li>
+          <li>Tool 2</li>
+          <li>Tool 3</li>
+        </ul>
+      </main>
+      <footer>
+        <p>Web Tool Magic &copy; 2023</p>
+      </footer>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
